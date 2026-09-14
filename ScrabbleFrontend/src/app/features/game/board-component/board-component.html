@@ -1,0 +1,14 @@
+<div class="board-grid">
+ 
+  @for (cell of board; track $index) {
+    <div 
+      class="cell" 
+      [class]="layout[$index]" 
+      (click)="onCellClick($index)">
+      
+      @if (cell) {
+        <app-tile [letter]="cell.letter" [points]="cell.points" [color]="cell.color" />
+      }
+    </div>
+  }
+</div>

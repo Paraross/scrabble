@@ -1,0 +1,29 @@
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 1px;
+  width: min(95vw, calc(2/3 * 100vh), 800px);
+  aspect-ratio: 1 / 1;
+  border: 2px solid #333;
+}
+
+.cell {
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e0e0;
+  position: relative;
+  font-size: clamp(0.4rem, 1.5vw, 0.6rem);
+  font-weight: bold;
+  color: #555;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Premium square colors matching the Scrabble board */
+.TWD { background-color: #e53935; color: white; } /* Triple Word */
+.WLD { background-color: #ef9a9a; color: #333; }  /* Double Word */
+.LTD { background-color: #1e88e5; color: white; }  /* Triple Letter */
+.LWD { background-color: #90caf9; color: #333; }   /* Double Letter */
+.STAR { background-color: #fdd835; color: #333; }  /* Center Star */

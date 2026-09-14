@@ -1,0 +1,85 @@
+// We use a flat array of 225 items (15x15) to represent the board
+// Type: 'NORMAL', 'TWD' (Triple Word), 'WLD' (Double Word), 'LTD' (Letter Triple), 'LWD' (Letter Double), 'STAR' (Center)
+export const BOARD_LAYOUT: string[] = new Array(225).fill('NORMAL');
+
+// Helper to set specific squares easily
+export const setPremiumSquare = (index: number, type: string) => {
+  BOARD_LAYOUT[index] = type;
+};
+
+// Triple Word squares (3×S) - 8 squares
+setPremiumSquare(0,   'TWD');  // (0,0)
+setPremiumSquare(7,   'TWD');  // (0,7)
+setPremiumSquare(14,  'TWD');  // (0,14)
+setPremiumSquare(105, 'TWD');  // (7,0)
+setPremiumSquare(119, 'TWD');  // (7,14)
+setPremiumSquare(210, 'TWD');  // (14,0)
+setPremiumSquare(217, 'TWD');  // (14,7)
+setPremiumSquare(224, 'TWD');  // (14,14)
+
+// Double Word squares (2×S) - 16 squares
+setPremiumSquare(17,  'WLD');  // (1,2)
+setPremiumSquare(27,  'WLD');  // (1,13)
+setPremiumSquare(33,  'WLD');  // (2,3)
+setPremiumSquare(41,  'WLD');  // (2,12)
+setPremiumSquare(49,  'WLD');  // (3,4)
+setPremiumSquare(55,  'WLD');  // (3,11)
+setPremiumSquare(61,  'WLD');  // (4,1)
+setPremiumSquare(67,  'WLD');  // (4,7)
+setPremiumSquare(73,  'WLD');  // (4,13)
+setPremiumSquare(80,  'WLD');  // (5,5)
+setPremiumSquare(86,  'WLD');  // (5,11)
+setPremiumSquare(96,  'WLD');  // (6,6)
+setPremiumSquare(102, 'WLD');  // (6,12)
+setPremiumSquare(122, 'WLD');  // (8,2)
+setPremiumSquare(128, 'WLD');  // (8,8)
+setPremiumSquare(134, 'WLD');  // (8,14)
+setPremiumSquare(140, 'WLD');  // (9,5)
+setPremiumSquare(146, 'WLD');  // (9,11)
+setPremiumSquare(152, 'WLD');  // (10,2)
+setPremiumSquare(158, 'WLD');  // (10,8)
+setPremiumSquare(164, 'WLD');  // (10,14)
+setPremiumSquare(170, 'WLD');  // (11,5)
+setPremiumSquare(176, 'WLD');  // (11,11)
+setPremiumSquare(182, 'WLD');  // (12,2)
+setPremiumSquare(188, 'WLD');  // (12,8)
+setPremiumSquare(194, 'WLD');  // (12,14)
+setPremiumSquare(200, 'WLD');  // (13,5)
+setPremiumSquare(206, 'WLD');  // (13,11)
+
+// Triple Letter squares (3×L) - 4 squares
+setPremiumSquare(21,  'LTD');  // (1,6)
+setPremiumSquare(23,  'LTD');  // (1,8)
+setPremiumSquare(75,  'LTD');  // (5,0)
+setPremiumSquare(83,  'LTD');  // (5,8)
+setPremiumSquare(137, 'LTD');  // (9,2)
+setPremiumSquare(143, 'LTD');  // (9,8)
+setPremiumSquare(199, 'LTD');  // (13,4)
+setPremiumSquare(201, 'LTD');  // (13,6)
+
+// Double Letter squares (2×L) - 12 squares
+setPremiumSquare(4,   'LWD');  // (0,4)
+setPremiumSquare(10,  'LWD');  // (0,10)
+setPremiumSquare(30,  'LWD');  // (2,0)
+setPremiumSquare(37,  'LWD');  // (2,7)
+setPremiumSquare(44,  'LWD');  // (2,14)
+setPremiumSquare(50,  'LWD');  // (3,5)
+setPremiumSquare(56,  'LWD');  // (3,11)
+setPremiumSquare(78,  'LWD');  // (5,3)
+setPremiumSquare(84,  'LWD');  // (5,9)
+setPremiumSquare(107, 'LWD');  // (7,2)
+setPremiumSquare(113, 'LWD');  // (7,12)
+setPremiumSquare(132, 'LWD');  // (8,12)
+setPremiumSquare(138, 'LWD');  // (9,3)
+setPremiumSquare(144, 'LWD');  // (9,9)
+setPremiumSquare(165, 'LWD');  // (11,0)
+setPremiumSquare(172, 'LWD');  // (11,7)
+setPremiumSquare(179, 'LWD');  // (11,14)
+setPremiumSquare(183, 'LWD');  // (12,3)
+setPremiumSquare(189, 'LWD');  // (12,9)
+setPremiumSquare(204, 'LWD');  // (13,9)
+setPremiumSquare(214, 'LWD');  // (14,4)
+setPremiumSquare(220, 'LWD');  // (14,10)
+
+// Center star (★)
+setPremiumSquare(112, 'STAR');  // (7,7)
