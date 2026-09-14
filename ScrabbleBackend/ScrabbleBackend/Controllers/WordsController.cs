@@ -3,11 +3,11 @@ using ScrabbleBackend.WordDictionaries;
 
 namespace ScrabbleBackend.Controllers;
 
-public static class WordsController
+public class WordsController : IController
 {
-    private const string Path = "/words";
+    public string Path => "/words";
 
-    public static void MapAll(IEndpointRouteBuilder routeBuilder)
+    public void MapAll(IEndpointRouteBuilder routeBuilder)
     {
         var api = routeBuilder.MapGroup(Path);
         api.MapGet("/{word}", Exists);

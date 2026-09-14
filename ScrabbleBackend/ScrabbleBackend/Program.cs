@@ -18,6 +18,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(options => { options.SwaggerEndpoint("/openapi/v1.json", "v1"); });
 }
 
-WordsController.MapAll(app);
+new WordsController().MapAll(app);
 
 app.Run();
