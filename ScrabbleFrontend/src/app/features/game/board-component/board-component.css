@@ -14,11 +14,21 @@
   align-items: center;
   background-color: #e0e0e0;
   position: relative;
+  font-family: console, monospace;
   font-size: clamp(0.4rem, 1.5vw, 0.6rem);
-  font-weight: bold;
+  font-weight: 700;
   color: #555;
   user-select: none;
   line-height: 1;
+}
+
+.premium-label {
+  font-size: clamp(0.42rem, 1.35vw, 0.7rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
 }
 
 /* Premium square colors matching the Scrabble board */

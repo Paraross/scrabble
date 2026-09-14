@@ -8,6 +8,8 @@
       
       @if (cell) {
         <app-tile [letter]="cell.letter" [points]="cell.points" [color]="cell.color" />
+      } @else {
+        <span class="premium-label">{{ getPremiumLabel($index) }}</span>
       }
     </div>
   }
