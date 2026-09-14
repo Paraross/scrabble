@@ -2,15 +2,16 @@ using HtmlAgilityPack;
 
 namespace ScrabbleBackend.WordDictionaries;
 
-public class SjpDictionary : FullDictionary
+public class SjpDictionary(IConfiguration configuration) : FullDictionary
 {
-    private const string BaseUrl = "https://sjp.pl/";
+    private readonly string _baseUrlTemplate = configuration.GetValue<string>("WordDictionaries:Sjp:WordUrl") ??
+                                               throw new InvalidOperationException("No config for SJP");
 
     private HashSet<string> Words
     {
         get
         {
-            field ??= WordListReader.ReadWords("slowa.txt");
+            field ??= LocalWordListReader.ReadWords("slowa.txt");
             return field;
         }
     }
@@ -23,7 +24,7 @@ public class SjpDictionary : FullDictionary
     override public bool ContainsOnline(string word)
     {
         var web = new HtmlWeb();
-        var document = web.Load($"{BaseUrl}{word}");
+        var document = web.Load(_baseUrlTemplate.Replace("{word}", word));
 
         return document
             .DocumentNode.QuerySelectorAll("body > p")

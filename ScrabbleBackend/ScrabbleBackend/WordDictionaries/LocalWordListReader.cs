@@ -1,6 +1,6 @@
 namespace ScrabbleBackend.WordDictionaries;
 
-public static class WordListReader
+public static class LocalWordListReader
 {
     private const string WordListsDirectory = "WordDictionaries/WordLists";
 
