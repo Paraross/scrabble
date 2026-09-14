@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 namespace ScrabbleBackend.WordDictionaries;
 
 public class SjpDictionary : IWordDictionary
@@ -22,14 +20,6 @@ public class SjpDictionary : IWordDictionary
 
     public bool Contains(string word)
     {
-        var s = Stopwatch.StartNew();
-
-        var contains = _words.Contains(word);
-
-        s.Stop();
-
-        Console.WriteLine($"ELAPSED: {s.ElapsedMilliseconds} ms");
-
-        return contains;
+        return _words.Contains(word);
     }
 }
