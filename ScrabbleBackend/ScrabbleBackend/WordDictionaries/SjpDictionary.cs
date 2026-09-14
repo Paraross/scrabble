@@ -1,11 +1,32 @@
+using HtmlAgilityPack;
+
 namespace ScrabbleBackend.WordDictionaries;
 
-public class SjpDictionary : IWordDictionary
+public class SjpDictionary : FullDictionary
 {
-    private readonly HashSet<string> _words = WordListReader.ReadWords("slowa.txt");
+    private const string BaseUrl = "https://sjp.pl/";
 
-    public bool Contains(string word)
+    private HashSet<string> Words
     {
-        return _words.Contains(word);
+        get
+        {
+            field ??= WordListReader.ReadWords("slowa.txt");
+            return field;
+        }
+    }
+
+    override public bool ContainsLocal(string word)
+    {
+        return Words.Contains(word);
+    }
+
+    override public bool ContainsOnline(string word)
+    {
+        var web = new HtmlWeb();
+        var document = web.Load($"{BaseUrl}{word}");
+
+        return document
+            .DocumentNode.QuerySelectorAll("body > p")
+            .Any(p => p.InnerText.StartsWith("dopuszczalne w grach (i)"));
     }
 }
