@@ -15,6 +15,6 @@ public static class WordsController
 
     private static async Task<Results<Ok, NotFound>> Exists(string word, IWordDictionary wordDictionary)
     {
-        return wordDictionary.ContainsWord(word) ? TypedResults.Ok() : TypedResults.NotFound();
+        return wordDictionary.Contains(word) ? TypedResults.Ok() : TypedResults.NotFound();
     }
 }

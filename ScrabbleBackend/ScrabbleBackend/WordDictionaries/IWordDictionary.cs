@@ -2,5 +2,5 @@ namespace ScrabbleBackend.WordDictionaries;
 
 public interface IWordDictionary
 {
-    bool ContainsWord(string word);
+    bool Contains(string word);
 }

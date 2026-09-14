@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace ScrabbleBackend.WordDictionaries;
 
 public class SjpDictionary : IWordDictionary
@@ -6,19 +8,28 @@ public class SjpDictionary : IWordDictionary
     {
         using var reader = new StreamReader("WordDictionaries/WordLists/slowa.txt");
 
-        var words = new List<string>();
+        var wordsSet = new HashSet<string>();
         foreach (var line in reader.ReadToEnd().EnumerateLines())
         {
-            words.Add(line.ToString());
+            var word = line.ToString();
+            wordsSet.Add(word);
         }
 
-        _words = words;
+        _words = wordsSet;
     }
 
-    private readonly List<string> _words;
+    private readonly HashSet<string> _words;
 
-    public bool ContainsWord(string word)
+    public bool Contains(string word)
     {
-        return _words.Contains(word);
+        var s = Stopwatch.StartNew();
+
+        var contains = _words.Contains(word);
+
+        s.Stop();
+
+        Console.WriteLine($"ELAPSED: {s.ElapsedMilliseconds} ms");
+
+        return contains;
     }
 }
