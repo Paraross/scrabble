@@ -15,9 +15,7 @@ export interface ScoreResult {
 
 @Injectable({ providedIn: 'root' })
 export class ScoreService {
-  /**
-   * Calculate the score for a set of tiles placed in a single word.
-   */
+  // Calculate score for a single word
   calculateWordScore(placedTiles: PlacedTile[]): ScoreResult {
     if (placedTiles.length === 0) {
       return { baseScore: 0, wordScores: [], totalScore: 0 };
@@ -27,7 +25,7 @@ export class ScoreService {
     let wordMultiplier = 1;
     const wordScores: number[] = [];
 
-    // First pass: calculate letter scores with letter multipliers
+    // First pass: letter scores with multipliers
     for (const tile of placedTiles) {
       if (!tile.cell) continue;
       
@@ -53,7 +51,7 @@ export class ScoreService {
       }
     }
 
-    // Second pass: apply word multiplier to base score
+    // Apply word multiplier to base score
     let totalScore = baseScore * wordMultiplier;
 
     // Calculate individual word scores for display

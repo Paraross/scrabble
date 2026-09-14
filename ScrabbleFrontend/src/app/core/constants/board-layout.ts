@@ -1,13 +1,11 @@
-// We use a flat array of 225 items (15x15) to represent the board
-// Type: 'NORMAL', 'TWD' (Triple Word), 'WLD' (Double Word), 'LTT' (Letter Triple), 'LTD' (Letter Double), 'STAR' (Center)
+// Flat 15x15 board — types: NORMAL, TWD, WLD, LTT, LTD, STAR
 export const BOARD_LAYOUT: string[] = new Array(225).fill('NORMAL');
 
-// Helper to set specific squares easily
 export const setPremiumSquare = (index: number, type: string) => {
   BOARD_LAYOUT[index] = type;
 };
 
-// Triple Word squares (3×S)
+// Triple Word
 setPremiumSquare(0, 'TWD');
 setPremiumSquare(7, 'TWD');
 setPremiumSquare(14, 'TWD');
@@ -17,7 +15,7 @@ setPremiumSquare(210, 'TWD');
 setPremiumSquare(217, 'TWD');
 setPremiumSquare(224, 'TWD');
 
-// Double Word squares (2×S)
+// Double Word
 setPremiumSquare(16, 'WLD');
 setPremiumSquare(28, 'WLD');
 setPremiumSquare(32, 'WLD');
@@ -35,7 +33,7 @@ setPremiumSquare(192, 'WLD');
 setPremiumSquare(196, 'WLD');
 setPremiumSquare(208, 'WLD');
 
-// Triple Letter squares (3×L)
+// Triple Letter
 setPremiumSquare(20, 'LTT');
 setPremiumSquare(24, 'LTT');
 setPremiumSquare(76, 'LTT');
@@ -49,7 +47,7 @@ setPremiumSquare(148, 'LTT');
 setPremiumSquare(200, 'LTT');
 setPremiumSquare(204, 'LTT');
 
-// Double Letter squares (2×L)
+// Double Letter
 setPremiumSquare(3, 'LTD');
 setPremiumSquare(11, 'LTD');
 setPremiumSquare(36, 'LTD');
@@ -75,5 +73,5 @@ setPremiumSquare(188, 'LTD');
 setPremiumSquare(213, 'LTD');
 setPremiumSquare(221, 'LTD');
 
-// Center star (★)
+// Center star
 setPremiumSquare(112, 'STAR');

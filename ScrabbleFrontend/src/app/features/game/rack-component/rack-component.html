@@ -1,1 +1,33 @@
-<p>rack-component works!</p>
+<div class="rack-wrapper">
+  <!-- Bag status indicator -->
+  <div class="bag-status">
+    <span class="bag-icon">🎒</span>
+    <span class="bag-count">{{ bagCount() }} tiles left</span>
+  </div>
+
+  <!-- The rack tray -->
+  <div class="rack-tray">
+    @for (tile of rack(); track tile.id) {
+      <div
+        class="rack-slot"
+        [class.selected]="isSelected(tile.id)"
+        (click)="toggleSelection(tile.id)">
+        <app-tile
+          [letter]="tile.letter || ' '"
+          [points]="tile.points"
+          [color]="tile.color" />
+      </div>
+    }
+    <!-- Empty slots as placeholders -->
+    @for (empty of emptySlots(); track $index) {
+      <div class="rack-slot empty-slot"></div>
+    }
+  </div>
+
+  <!-- Action buttons -->
+  <div class="rack-actions">
+    @if (selectedCount() > 0) {
+      <button class="btn btn-clear" (click)="clearSelection()">Clear Selection</button>
+    }
+  </div>
+</div>
